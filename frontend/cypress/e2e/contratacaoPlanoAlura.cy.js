@@ -34,9 +34,9 @@ describe(`
       //CT04
       LpGenericaCursoEscolhido.clickRandomDuracaoPlano();
       LpGenericaCursoEscolhido.clickRandomPlano();
-      cy.origin("https://cursos.alura.com.br", () => {
-        cy.screenshot("Checkout");
-      });
+      //cy.origin("https://cursos.alura.com.br", () => {
+        //cy.screenshot("Checkout");
+      //});
     });
   });
 });
