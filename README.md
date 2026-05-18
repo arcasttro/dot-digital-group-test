@@ -3,6 +3,9 @@ Repositório criado para o teste prático da vaga de Analista de Testes de níve
 
 ## Visão Geral
 
+⚠️Observação:
+O ambiente de checkout possui proteção que pode bloquear execuções em ambientes CI/CD headless (GitHub Actions). Por esse motivo, a etapa de screenshot e acesso ao checkout estão comentadas
+
 Este projeto contém a automação End-to-End desenvolvida como teste técnico para validação do fluxo de busca, seleção de curso e início do checkout da plataforma Alura.
 
 A automação foi construída utilizando:
