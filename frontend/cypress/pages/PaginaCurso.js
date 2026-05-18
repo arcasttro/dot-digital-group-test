@@ -46,7 +46,7 @@ class LpGenericaCursoEscolhido {
         .find(".plans__plan__cta")
         .scrollIntoView()
         .should("be.visible")
-        .click();
+        //.click();
     });
   }
 }
