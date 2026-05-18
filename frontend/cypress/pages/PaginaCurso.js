@@ -1,11 +1,7 @@
-export class LpGenericaCursoEscolhido {
-  checkUrl(href) {
-    cy.url().should("include", href);
-  }
-
+class LpGenericaCursoEscolhido {
   getTituloCurso() {
     return cy.get(".curso-banner-course-title").then((elementTitle) => {
-      const title = element.text().trim();
+      const title = elementTitle.text().trim();
 
       return cy.get(".course--banner-text-category").then((elementCategory) => {
         const category = elementCategory.text().trim();
@@ -31,36 +27,28 @@ export class LpGenericaCursoEscolhido {
   }
 
   clickRandomDuracaoPlano() {
-    const index = Math.floor(Math.random() * this.getDuracaoPlano().length);
-    this.getDuracaoPlano()
-      .eq(index)
-      .scrollIntoView()
-      .should("be.visible")
-      .click();
+    this.getDuracaoPlano().then((data) => {
+      const index = Math.floor(Math.random() * data.length);
+
+      cy.wrap(data.eq(index)).scrollIntoView().should("be.visible").click();
+    });
   }
 
-
-  getPlanos(){
-    return cy.get('.plans__list popup')
-        .should('not.be.hidden')
-        .children()
+  getPlanos() {
+    return cy.get(".plans__list.popup:not(.hidden)").children();
   }
 
   clickRandomPlano() {
     return this.getPlanos().then((planos) => {
       const index = Math.floor(Math.random() * planos.length);
       const item = planos.eq(index);
-
-      const titulo = item.find(".plans__plan__title").text().trim();
-      const descricao = item.find(".plans__plan__description").text().trim();
-      const valor = item.find(".plans__plan__value__time > span").text().trim();
-
-      item.find('.plans__plan__cta')
+      cy.wrap(item)
+        .find(".plans__plan__cta")
         .scrollIntoView()
         .should("be.visible")
         .click();
-
-      return { titulo, descricao, valor };
     });
   }
 }
+
+export default new LpGenericaCursoEscolhido();

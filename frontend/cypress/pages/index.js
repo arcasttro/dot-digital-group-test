@@ -1,4 +1,3 @@
-export { HomePage } from './HomePage'
-export { BuscaPage } from './BuscaPage'
-export { CheckoutPage } from './CheckoutPage'
-export { LpGenericaCursoEscolhido } from './LpGenericaCursoEscolhido'
+export { default as HomePage } from './HomePage'
+export { default as BuscaPage } from './BuscaPage'
+export { default as LpGenericaCursoEscolhido } from './PaginaCurso'

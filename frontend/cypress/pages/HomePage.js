@@ -1,7 +1,7 @@
-export class HomePage {
+class HomePage {
 
     getFormBusca(){
-        return cy.get('form.search-bar__form')
+        return cy.get('#header-items form[action="/busca"]')
     }
 
     getCampoBusca() {
@@ -12,18 +12,24 @@ export class HomePage {
         return this.getCampoBusca().siblings('button.search-bar__form-submit')
     }
 
-    insertTextBusca(searchInput){
+    clickBotaoBusca(){
         this.getBotaoBusca()
             .scrollIntoView()
             .should('be.visible')
             .click()
+    }
+
+    insertTextBusca(textoBusca){
+        this.clickBotaoBusca()
         
         this.getCampoBusca()
             .should('be.visible')
             .clear()
-            .type(searchInput)
+            .type(textoBusca)
 
-        this.getFormBusca.submit()
-        return searchInput
+        this.getFormBusca().submit()
+        return textoBusca
     }
 }
+
+export default new HomePage()
